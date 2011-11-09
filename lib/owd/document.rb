@@ -5,7 +5,7 @@ module OWD
   class Document
     def initialize attributes = {}
       @attributes = attributes
-      @doc        = Builder::XmlMarkup.new      
+      @doc        = Builder::XmlMarkup.new
     end
 
     def owd_name

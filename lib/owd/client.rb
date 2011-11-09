@@ -2,7 +2,7 @@ require 'crack'
 require 'net/http'
 require 'uri'
 
-module OWD  
+module OWD
   class Client
     API_VERSION = '1.9'
     ENDPOINT = 'https://secure.owd.com/webapps/api/api.jsp'
@@ -19,14 +19,14 @@ module OWD
     def post document_name, opts = {}
       name = document_name.to_s.camelize
       doc = OWD.const_defined?(name) ? OWD.const_get(name) : OWD.const_missing(name)
-      
+
       xml = doc.new(:api_version          => API_VERSION,
                     :client_id            => @client_id,
                     :client_authorization => @client_authorization,
                     :testing              => @testing).build(opts)
       extract_response(send_request(xml))
     end
-    
+
     def send_request xml
       uri = URI.parse(ENDPOINT)
       http = Net::HTTP.new(uri.host, uri.port)
