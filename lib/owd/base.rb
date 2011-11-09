@@ -7,4 +7,5 @@ Dir[File.dirname(__FILE__) + "/documents/**/*.rb"].each do |file|
   require File.basename(f, '.rb')
 end
 
+require 'owd/simple_proxy'
 require 'owd/client'
