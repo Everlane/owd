@@ -1,4 +1,4 @@
-class SimpleProxy < BasicObject
+class SimpleProxy
   def initialize proxied, method
     @proxied = proxied
     @method  = method

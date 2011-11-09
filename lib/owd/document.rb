@@ -1,4 +1,4 @@
-require 'activesupport'
+require 'active_support/core_ext/string'
 require 'builder'
 
 module OWD
@@ -26,4 +26,8 @@ module OWD
       @doc
     end
   end
+end
+
+Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
+  require file
 end

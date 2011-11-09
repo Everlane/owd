@@ -1,4 +1,3 @@
-require 'activesupport'
 require 'crack'
 require 'net/http'
 require 'uri'
