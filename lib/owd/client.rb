@@ -13,7 +13,6 @@ module OWD
       @client_id            = opts[:client_id]
       @client_authorization = opts[:client_authorization]
       @testing              = opts[:testing] ? 'TRUE' : 'FALSE'
-      @raise_exceptions     = true
     end
 
     def post document_name, opts = {}
@@ -42,7 +41,7 @@ module OWD
     def extract_response response
       results = Crack::XML.parse(response.body)['OWD_API_RESPONSE']
 
-      if @raise_exceptions && results['results'] == 'ERROR'
+      if results['results'] == 'ERROR'
         raise APIError.new 'type'    => results['error_type'],
                            'message' => results['error_response']
       end
