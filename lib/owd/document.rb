@@ -1,3 +1,6 @@
+require 'activesupport'
+require 'builder'
+
 module OWD
   class Document
     def initialize attributes = {}

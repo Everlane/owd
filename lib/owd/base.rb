@@ -3,7 +3,7 @@ require 'owd/version'
 require 'owd/error'
 require 'owd/document'
 
-Dir[File.dirname(__FILE__) + "/documents/**/*.rb"].each do |file|
+Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
   require File.basename(file, '.rb')
 end
 
