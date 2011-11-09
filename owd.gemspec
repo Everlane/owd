@@ -3,6 +3,7 @@ require 'owd/version'
 
 Gem::Specification.new 'owd', OWD::VERSION do |s|
   s.summary           = "A simple client for One World Direct's XML API"
+  s.description       = s.summary
   s.author            = 'Jesse Farmer'
   s.email             = "jesse@everlane.com"
   s.homepage          = "http://www.everlane.com/"
