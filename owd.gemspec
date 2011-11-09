@@ -11,6 +11,7 @@ Gem::Specification.new 'owd', OWD::VERSION do |s|
   s.extra_rdoc_files  = s.files.select { |p| p =~ /^README/ } << 'LICENSE'
   s.rdoc_options      = %w[--line-numbers --inline-source --title OWD --main README.rdoc]
 
+  s.add_dependency 'activesupport'
   s.add_dependency 'crack'
   s.add_dependency 'builder'
 end
