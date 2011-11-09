@@ -16,13 +16,17 @@ module OWD
     end
 
     def post document_name, opts = {}
-      name = document_name.to_s.camelize
-      doc = OWD.const_defined?(name) ? OWD.const_get(name) : OWD.const_missing(name)
+      klass = symbol_to_class_name(document_name)
+      document = OWD.const_defined?(klass) ? OWD.const_get(klass) : OWD.const_missing(klass)
 
-      xml = doc.new(:api_version          => API_VERSION,
-                    :client_id            => @client_id,
-                    :client_authorization => @client_authorization,
-                    :testing              => @testing).build(opts)
+      post_document document, opts
+    end
+
+    def post_document document, opts = {}
+      xml = document.new(:api_version          => API_VERSION,
+                         :client_id            => @client_id,
+                         :client_authorization => @client_authorization,
+                         :testing              => @testing).build(opts)
       extract_response(send_request(xml))
     end
 
@@ -49,6 +53,11 @@ module OWD
 
     def api
       @api ||= SimpleProxy.new(self, :post)
+    end
+
+    private
+    def symbol_to_class_name sym
+      sym.to_s.camelize
     end
   end
 end
