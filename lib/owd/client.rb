@@ -39,14 +39,12 @@ module OWD
     end
 
     def extract_response response
-      results = Crack::XML.parse(response.body)['OWD_API_RESPONSE']
-
-      if results['results'] == 'ERROR'
-        raise APIError.new 'type'    => results['error_type'],
-                           'message' => results['error_response']
+      Crack::XML.parse(response.body)['OWD_API_RESPONSE'].tap do |results|
+        if results['results'] == 'ERROR'
+          raise APIError.new 'type'    => results['error_type'],
+                             'message' => results['error_response']
+        end
       end
-
-      results
     end
 
     def api
