@@ -26,6 +26,12 @@ module OWD
       @doc
     end
   end
+
+  class SimpleInlineDocument
+    def _build opts = {}
+      doc.tag!(self.owd_name, opts)
+    end
+  end
 end
 
 Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
