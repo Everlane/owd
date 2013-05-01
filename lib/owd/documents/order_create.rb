@@ -8,7 +8,12 @@ module OWD
                 backorder_rule:   opts[:backorder_rule] || 'NOBACKORDER',
                 hold_for_release: opts[:hold_for_release] || 'NO'}) do
 
-        doc.SHIPPING_INFO opts[:shipping_info]
+        doc.SHIPPING_INFO opts[:shipping_info] do 
+          doc.tag!(:BEST_WAY) do
+            opts[:shipping_best_way].collect {|carrier| doc.tag!(:CARRIER, carrier) }
+          end if opts[:shipping_best_way]
+        end
+
         doc.BILLING_INFO  opts[:billing_info]
 
         opts[:line_items].each do |line_item|
