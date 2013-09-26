@@ -4,7 +4,11 @@ module OWD
       if opts[:filters]
         doc.tag!(self.owd_name) do
           opts[:filters].each do |filt|
-            doc.FILTER filt
+            doc.tag!('FILTER') do
+              filt.each do |key, value|
+                doc.tag!(key.upcase, value)
+              end
+            end
           end
         end
       else
