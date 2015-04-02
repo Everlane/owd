@@ -1,3 +1,5 @@
+require './lib/owd/document'
+
 module OWD
   class OrderStatus < Document
     def _build opts = {}

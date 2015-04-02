@@ -33,7 +33,3 @@ module OWD
     end
   end
 end
-
-Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
-  require file
-end
