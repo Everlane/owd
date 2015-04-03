@@ -2,8 +2,6 @@ require './lib/owd/documents/order_status'
 require "./test/test_helper"
 
 describe OWD::OrderStatus do
-  include XmlAssertions
-
   before do
     @doc = OWD::OrderStatus.new
   end

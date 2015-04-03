@@ -6,3 +6,5 @@ module XmlAssertions
       Crack::XML.parse(expected)
   end
 end
+
+Minitest::Test.include(XmlAssertions)
