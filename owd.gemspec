@@ -15,6 +15,7 @@ Gem::Specification.new 'owd', OWD::VERSION do |s|
   s.add_dependency 'activesupport'
   s.add_dependency 'crack'
   s.add_dependency 'builder'
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'minitest-reporters'
 end
