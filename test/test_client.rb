@@ -9,13 +9,16 @@ describe OWD::Client do
     mock_order_status = MiniTest::Mock.new
     mock_order_status.expect(:build, '', [{foo: 'bar'}])
 
+    mock_request = MiniTest::Mock.new
+    mock_request.expect(:perform, true)
+
     OWD::OrderStatus.stub :new, mock_order_status do
-      begin
+      OWD::Request.stub :new, mock_request do
         @client.api.order_status(foo: 'bar')
-      rescue OWD::APIError
       end
     end
 
     mock_order_status.verify
+    mock_request.verify
   end
 end
