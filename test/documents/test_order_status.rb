@@ -1,5 +1,5 @@
-require './lib/owd/documents/order_status'
-require "./test/test_helper"
+require 'owd/documents/order_status'
+require "test_helper"
 
 describe OWD::OrderStatus do
   before do

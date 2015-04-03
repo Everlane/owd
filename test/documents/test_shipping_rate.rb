@@ -1,5 +1,5 @@
-require './lib/owd/documents/shipping_rate'
-require "./test/test_helper"
+require 'owd/documents/shipping_rate'
+require "test_helper"
 
 describe OWD::ShippingRate do
   before do

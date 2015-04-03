@@ -1,4 +1,4 @@
-require './lib/owd/document'
+require 'owd/document'
 
 module OWD
   class ShippingRate < Document

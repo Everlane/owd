@@ -1,5 +1,5 @@
-require './lib/owd/documents/test_inventory_setcount'
-require './test/test_helper'
+require 'owd/documents/test_inventory_setcount'
+require 'test_helper'
 
 describe OWD::TestInventorySetcount do
   before do
