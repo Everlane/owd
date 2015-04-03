@@ -11,4 +11,5 @@ Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
 end
 
 require 'owd/simple_proxy'
+require 'owd/request'
 require 'owd/client'
