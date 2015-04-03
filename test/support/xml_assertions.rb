@@ -7,4 +7,6 @@ module XmlAssertions
   end
 end
 
-Minitest::Test.include(XmlAssertions)
+class Minitest::Test
+  include XmlAssertions
+end
