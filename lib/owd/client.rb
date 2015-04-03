@@ -14,12 +14,18 @@ module OWD
       @testing              = opts[:testing] ? 'TRUE' : 'FALSE'
     end
 
+    def api
+      @api ||= SimpleProxy.new(self, :post)
+    end
+
     def post document_name, opts = {}
       klass = symbol_to_class_name(document_name)
       document = OWD.const_defined?(klass) ? OWD.const_get(klass) : OWD.const_missing(klass)
 
       post_document document, opts
     end
+
+    private
 
     def post_document document, opts = {}
       xml = document.new(:api_version          => API_VERSION,
@@ -28,12 +34,6 @@ module OWD
                          :testing              => @testing).build(opts)
       Request.new(xml).perform
     end
-
-    def api
-      @api ||= SimpleProxy.new(self, :post)
-    end
-
-    private
 
     def symbol_to_class_name sym
       sym.to_s.camelize
