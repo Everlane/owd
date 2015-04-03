@@ -11,11 +11,11 @@ describe OWD::OrderStatus do
   end
 
   describe "#build" do
-    it "builds an XML request document" do
-      assert_equal_xml @doc.build, <<-XML
+    it "builds an XML body with an :order_reference" do
+      assert_equal_xml @doc.build(order_reference: '123'), <<-XML
         <?xml version="1.0" encoding="UTF-8"?>
         <OWD_API_REQUEST>
-          <OWD_ORDER_STATUS_REQUEST clientOrderId="" />
+          <OWD_ORDER_STATUS_REQUEST clientOrderId="123" />
         </OWD_API_REQUEST>
       XML
     end
