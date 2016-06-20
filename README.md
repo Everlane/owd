@@ -1,6 +1,6 @@
 # OWD
 
-[![Build Status](https://api.travis-ci.org/bluebottlecoffee/owd.svg?branch=master)](https://travis-ci.org/rochers/owd) [![Code Climate](https://codeclimate.com/github/rochers/owd.png)](https://codeclimate.com/github/rochers/owd)
+[![Build Status](https://api.travis-ci.org/bluebottlecoffee/owd.svg?branch=master)](https://travis-ci.org/rochers/owd) [![Code Climate](https://codeclimate.com/github/rochers/owd.svg)](https://codeclimate.com/github/rochers/owd)
 
 The owd gem is a simple client for One World Direct's XML API.
 
