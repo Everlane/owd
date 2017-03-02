@@ -21,6 +21,10 @@ module OWD
       doc.target!
     end
 
+    def _build(*)
+      raise NotImplementedError, "must be implemented by subclass"
+    end
+
     private
     def doc
       @doc
@@ -32,8 +36,4 @@ module OWD
       doc.tag!(self.owd_name, opts)
     end
   end
-end
-
-Dir[File.dirname(__FILE__) + "/documents/*.rb"].each do |file|
-  require file
 end
